@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07AC2472E04E009F2E76 /* AppDelegate.m */; };
 		CD2B07B02472E04E009F2E76 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07AF2472E04E009F2E76 /* SceneDelegate.m */; };
-		CD2B07B32472E04E009F2E76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07B22472E04E009F2E76 /* ViewController.m */; };
 		CD2B07B62472E04E009F2E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07B42472E04E009F2E76 /* Main.storyboard */; };
 		CD2B07B82472E051009F2E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07B72472E051009F2E76 /* Assets.xcassets */; };
 		CD2B07BB2472E051009F2E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07B92472E051009F2E76 /* LaunchScreen.storyboard */; };
 		CD2B07BE2472E051009F2E76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07BD2472E051009F2E76 /* main.m */; };
+		CD2B07DB2472EA96009F2E76 /* AUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07D82472EA96009F2E76 /* AUPViewController.m */; };
+		CD2B07DC2472EA96009F2E76 /* Butterfly.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07DA2472EA96009F2E76 /* Butterfly.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +23,14 @@
 		CD2B07AC2472E04E009F2E76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD2B07AE2472E04E009F2E76 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		CD2B07AF2472E04E009F2E76 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		CD2B07B12472E04E009F2E76 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CD2B07B22472E04E009F2E76 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CD2B07B52472E04E009F2E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD2B07B72472E051009F2E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD2B07BA2472E051009F2E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD2B07BC2472E051009F2E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD2B07BD2472E051009F2E76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD2B07D72472EA96009F2E76 /* AUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUPViewController.h; sourceTree = "<group>"; };
+		CD2B07D82472EA96009F2E76 /* AUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUPViewController.m; sourceTree = "<group>"; };
+		CD2B07DA2472EA96009F2E76 /* Butterfly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Butterfly.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,19 +63,52 @@
 		CD2B07AA2472E04E009F2E76 /* AudioUnitSample */ = {
 			isa = PBXGroup;
 			children = (
+				CD2B07D92472EA96009F2E76 /* Music */,
+				CD2B07D52472EA96009F2E76 /* PlayerAndRecorder */,
+				CD2B07C42472E3D9009F2E76 /* resource */,
+			);
+			path = AudioUnitSample;
+			sourceTree = "<group>";
+		};
+		CD2B07C42472E3D9009F2E76 /* resource */ = {
+			isa = PBXGroup;
+			children = (
 				CD2B07AB2472E04E009F2E76 /* AppDelegate.h */,
 				CD2B07AC2472E04E009F2E76 /* AppDelegate.m */,
 				CD2B07AE2472E04E009F2E76 /* SceneDelegate.h */,
 				CD2B07AF2472E04E009F2E76 /* SceneDelegate.m */,
-				CD2B07B12472E04E009F2E76 /* ViewController.h */,
-				CD2B07B22472E04E009F2E76 /* ViewController.m */,
 				CD2B07B42472E04E009F2E76 /* Main.storyboard */,
 				CD2B07B72472E051009F2E76 /* Assets.xcassets */,
 				CD2B07B92472E051009F2E76 /* LaunchScreen.storyboard */,
 				CD2B07BC2472E051009F2E76 /* Info.plist */,
 				CD2B07BD2472E051009F2E76 /* main.m */,
 			);
-			path = AudioUnitSample;
+			name = resource;
+			sourceTree = "<group>";
+		};
+		CD2B07D52472EA96009F2E76 /* PlayerAndRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				CD2B07D62472EA96009F2E76 /* AudioUnitPlayer */,
+			);
+			path = PlayerAndRecorder;
+			sourceTree = "<group>";
+		};
+		CD2B07D62472EA96009F2E76 /* AudioUnitPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				CD2B07D72472EA96009F2E76 /* AUPViewController.h */,
+				CD2B07D82472EA96009F2E76 /* AUPViewController.m */,
+			);
+			path = AudioUnitPlayer;
+			sourceTree = "<group>";
+		};
+		CD2B07D92472EA96009F2E76 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				CD2B07DA2472EA96009F2E76 /* Butterfly.wav */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +170,7 @@
 			files = (
 				CD2B07BB2472E051009F2E76 /* LaunchScreen.storyboard in Resources */,
 				CD2B07B82472E051009F2E76 /* Assets.xcassets in Resources */,
+				CD2B07DC2472EA96009F2E76 /* Butterfly.wav in Resources */,
 				CD2B07B62472E04E009F2E76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,10 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD2B07B32472E04E009F2E76 /* ViewController.m in Sources */,
 				CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */,
 				CD2B07BE2472E051009F2E76 /* main.m in Sources */,
 				CD2B07B02472E04E009F2E76 /* SceneDelegate.m in Sources */,
+				CD2B07DB2472EA96009F2E76 /* AUPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
