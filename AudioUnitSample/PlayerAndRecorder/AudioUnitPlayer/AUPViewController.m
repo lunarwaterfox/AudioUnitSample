@@ -7,9 +7,10 @@
 //
 
 #import "AUPViewController.h"
+#import "AudioUnitPlayer.h"
 
 @interface AUPViewController ()
-
+@property (nonatomic, strong) AudioUnitPlayer *player;
 @end
 
 @implementation AUPViewController
@@ -30,19 +31,20 @@
 */
 
 - (IBAction)ready:(id)sender {
-    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Butterfly" ofType:@"wav"];
+    [_player loadPCMFIleWithPath:path];
 }
 
 - (IBAction)start:(id)sender {
-    
+    [_player play];
 }
 
 - (IBAction)pause:(id)sender {
-    
+     [_player pause];
 }
 
 - (IBAction)stop:(id)sender {
-    
+    [_player stop];
 }
 
 @end

@@ -15,6 +15,8 @@
 		CD2B07BE2472E051009F2E76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07BD2472E051009F2E76 /* main.m */; };
 		CD2B07DB2472EA96009F2E76 /* AUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07D82472EA96009F2E76 /* AUPViewController.m */; };
 		CD2B07DC2472EA96009F2E76 /* Butterfly.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07DA2472EA96009F2E76 /* Butterfly.wav */; };
+		CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07DE247371E0009F2E76 /* AudioUnitPlayer.mm */; };
+		CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07E02473732E009F2E76 /* AUPCore.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,10 @@
 		CD2B07D72472EA96009F2E76 /* AUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUPViewController.h; sourceTree = "<group>"; };
 		CD2B07D82472EA96009F2E76 /* AUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUPViewController.m; sourceTree = "<group>"; };
 		CD2B07DA2472EA96009F2E76 /* Butterfly.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Butterfly.wav; sourceTree = "<group>"; };
+		CD2B07DD247371E0009F2E76 /* AudioUnitPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUnitPlayer.h; sourceTree = "<group>"; };
+		CD2B07DE247371E0009F2E76 /* AudioUnitPlayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioUnitPlayer.mm; sourceTree = "<group>"; };
+		CD2B07E02473732E009F2E76 /* AUPCore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUPCore.cpp; sourceTree = "<group>"; };
+		CD2B07E12473732E009F2E76 /* AUPCore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AUPCore.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 			children = (
 				CD2B07D72472EA96009F2E76 /* AUPViewController.h */,
 				CD2B07D82472EA96009F2E76 /* AUPViewController.m */,
+				CD2B07DD247371E0009F2E76 /* AudioUnitPlayer.h */,
+				CD2B07DE247371E0009F2E76 /* AudioUnitPlayer.mm */,
+				CD2B07E02473732E009F2E76 /* AUPCore.cpp */,
+				CD2B07E12473732E009F2E76 /* AUPCore.hpp */,
 			);
 			path = AudioUnitPlayer;
 			sourceTree = "<group>";
@@ -183,6 +193,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */,
+				CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */,
+				CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */,
 				CD2B07BE2472E051009F2E76 /* main.m in Sources */,
 				CD2B07B02472E04E009F2E76 /* SceneDelegate.m in Sources */,
 				CD2B07DB2472EA96009F2E76 /* AUPViewController.m in Sources */,
