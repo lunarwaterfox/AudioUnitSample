@@ -6,15 +6,15 @@
 //  Copyright © 2020 lagopus Alopex. All rights reserved.
 //
 
-#import "AUPViewController.h"
-#import "AudioUnitPlayer.h"
+#import "AGPViewController.h"
+#import "AudioGraphPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface AUPViewController ()
-@property (nonatomic, strong) AudioUnitPlayer *player;
+@interface AGPViewController ()
+@property (nonatomic, strong) AudioGraphPlayer *player;
 @end
 
-@implementation AUPViewController
+@implementation AGPViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +25,7 @@
     [audioSession setPreferredIOBufferDuration: 0.02 error:nil];
     [audioSession setActive:YES error:nil];
     
-    _player = [[AudioUnitPlayer alloc] init];
+    _player = [[AudioGraphPlayer alloc] init];
 }
 
 /*

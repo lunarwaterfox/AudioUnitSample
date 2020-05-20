@@ -6,13 +6,13 @@
 //  Copyright © 2020 lagopus Alopex. All rights reserved.
 //
 
-#import "AudioUnitPlayer.h"
+#import "AudioGraphPlayer.h"
 #import <AudioToolbox/AudioToolbox.h>
-#import "AUPCore.hpp"
+#import "AGPCore.hpp"
 #import "AudioUnitException.hpp"
 
-@implementation AudioUnitPlayer {
-    AUPCore *_core;
+@implementation AudioGraphPlayer {
+    AGPCore *_core;
 }
 
 - (instancetype)init
@@ -26,7 +26,7 @@
 
 
 - (void)initAUPCore {
-    _core = new AUPCore();
+    _core = new AGPCore();
     
     try {
         _core->initialize();

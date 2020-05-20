@@ -9,12 +9,14 @@
 #ifndef AUPCore_hpp
 #define AUPCore_hpp
 
-#include <AudioUnit/AudioUnit.h>
+#include <AudioToolbox/AudioToolbox.h>
 #include <fstream>
 
-class AUPCore {
+class AGPCore {
 private:
+    AUGraph _aGraph;
     AudioUnit _ioUnit;
+    AUNode _ioNode;
     std::ifstream _stream;
     
     static OSStatus renderCallback(void* inRefCon,
@@ -25,7 +27,7 @@ private:
                                    AudioBufferList* ioData);
     
 public:
-    ~AUPCore();
+    ~AGPCore();
     void initialize();
     void loadPCMFile(CFStringRef url);
     void play() const;

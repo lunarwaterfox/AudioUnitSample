@@ -6,7 +6,7 @@
 //  Copyright © 2020 lagopus Alopex. All rights reserved.
 //
 
-#include "AUPCore.hpp"
+#include "AGPCore.hpp"
 #include <AudioToolbox/AudioToolbox.h>
 #include "AudioUnitException.hpp"
 
@@ -41,13 +41,13 @@ typedef struct _WAVHeader {
 
 using namespace std;
 
-OSStatus AUPCore::renderCallback(void* inRefCon,
+OSStatus AGPCore::renderCallback(void* inRefCon,
                                        AudioUnitRenderActionFlags* ioActionFlags,
                                        const AudioTimeStamp* inTimeStamp,
                                        UInt32 inBusNumber,
                                        UInt32 inNumberFrames,
                                        AudioBufferList* ioData) {
-    AUPCore *core = (AUPCore *)inRefCon;
+    AGPCore *core = (AGPCore *)inRefCon;
     
     core->_stream.read((char *)ioData->mBuffers[0].mData, ioData->mBuffers[0].mDataByteSize);
     
@@ -61,23 +61,33 @@ OSStatus AUPCore::renderCallback(void* inRefCon,
     return noErr;
 }
 
-void AUPCore::initialize() {
-    // 创建 AudioUnit实例
+void AGPCore::initialize() {
+    // 创建 AUGrpph 实例
+    OSStatus status = NewAUGraph(&_aGraph);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Graph create failed.");
+    }
+    
     AudioComponentDescription desc = {0};
     desc.componentType = kAudioUnitType_Output;
     desc.componentSubType = kAudioUnitSubType_RemoteIO;
     desc.componentManufacturer = kAudioUnitManufacturer_Apple;
     desc.componentFlags = 0;
     desc.componentFlagsMask = 0;
-
-    AudioComponent ioComponent = AudioComponentFindNext(NULL, &desc);
-    if (!ioComponent) {
-        throw AudioUnitException("Find Audio Component failed.");
-    }
-
-    OSStatus status = AudioComponentInstanceNew(ioComponent, &_ioUnit);
+    
+    status = AUGraphAddNode(_aGraph, &desc, &_ioNode);
     if (status != noErr) {
-        throw AudioUnitException("Audio Component create instance failed.");
+        throw AudioUnitException("Audio Graph add node failed.");
+    }
+    
+    status = AUGraphOpen(_aGraph);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Graph open failed.");
+    }
+    
+    status = AUGraphNodeInfo(_aGraph, _ioNode, NULL, &_ioUnit);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Graph get audio unit info failed.");
     }
     
     // 开启扬声器
@@ -89,7 +99,7 @@ void AUPCore::initialize() {
     
     // 设置 callback
     AURenderCallbackStruct input;
-    input.inputProc = AUPCore::renderCallback;
+    input.inputProc = AGPCore::renderCallback;
     input.inputProcRefCon = this;
 
     status = AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_SetRenderCallback, kAudioUnitScope_Input, 0, &input, sizeof(input));
@@ -104,7 +114,7 @@ void AUPCore::initialize() {
     }
 }
 
-void AUPCore::loadPCMFile(CFStringRef url) {
+void AGPCore::loadPCMFile(CFStringRef url) {
     // 读取 Wav header
     WAVHeader header;
     
@@ -129,14 +139,14 @@ void AUPCore::loadPCMFile(CFStringRef url) {
     }
 }
 
-void AUPCore::play() const {
+void AGPCore::play() const {
     OSStatus status = AudioOutputUnitStart(_ioUnit);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit play failed.");
     }
 }
 
-void AUPCore::stop() {
+void AGPCore::stop() {
     OSStatus status = AudioOutputUnitStop(_ioUnit);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit stop failed.");
@@ -146,7 +156,7 @@ void AUPCore::stop() {
     _stream.seekg(sizeof(WAVHeader));
 }
 
-void AUPCore::pause() const {
+void AGPCore::pause() const {
     OSStatus status = AudioOutputUnitStop(_ioUnit);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit stop failed.");
@@ -154,7 +164,7 @@ void AUPCore::pause() const {
 }
 
 
-AUPCore::~AUPCore() {
+AGPCore::~AGPCore() {
     AudioOutputUnitStop(_ioUnit);
     AudioUnitUninitialize(_ioUnit);
     

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AudioUnitPlayer : NSObject
+@interface AudioGraphPlayer : NSObject
 
 - (void)loadPCMFIleWithPath:(NSString *)path;
 - (void)play;

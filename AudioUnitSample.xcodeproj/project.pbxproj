@@ -19,6 +19,9 @@
 		CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07E02473732E009F2E76 /* AUPCore.cpp */; };
 		CD2B07E72474D985009F2E76 /* AudioUnitException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07E52474D985009F2E76 /* AudioUnitException.cpp */; };
 		CDBC45AF2474E3E10073D279 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC45AE2474E3E10073D279 /* AudioToolbox.framework */; };
+		CDBC45B72475882D0073D279 /* AGPCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45B12475882D0073D279 /* AGPCore.cpp */; };
+		CDBC45B82475882D0073D279 /* AGPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45B22475882D0073D279 /* AGPViewController.m */; };
+		CDBC45B92475882D0073D279 /* AudioGraphPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45B42475882D0073D279 /* AudioGraphPlayer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,12 @@
 		CD2B07E52474D985009F2E76 /* AudioUnitException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioUnitException.cpp; sourceTree = "<group>"; };
 		CD2B07E62474D985009F2E76 /* AudioUnitException.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioUnitException.hpp; sourceTree = "<group>"; };
 		CDBC45AE2474E3E10073D279 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CDBC45B12475882D0073D279 /* AGPCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AGPCore.cpp; sourceTree = "<group>"; };
+		CDBC45B22475882D0073D279 /* AGPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPViewController.m; sourceTree = "<group>"; };
+		CDBC45B32475882D0073D279 /* AudioGraphPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioGraphPlayer.h; sourceTree = "<group>"; };
+		CDBC45B42475882D0073D279 /* AudioGraphPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioGraphPlayer.mm; sourceTree = "<group>"; };
+		CDBC45B52475882D0073D279 /* AGPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPViewController.h; sourceTree = "<group>"; };
+		CDBC45B62475882D0073D279 /* AGPCore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AGPCore.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +111,9 @@
 		CD2B07D52472EA96009F2E76 /* PlayerAndRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				CD2B07E32474D94F009F2E76 /* Shared */,
+				CDBC45B02475882D0073D279 /* AudioGraphPlayer */,
 				CD2B07D62472EA96009F2E76 /* AudioUnitPlayer */,
+				CD2B07E32474D94F009F2E76 /* Shared */,
 			);
 			path = PlayerAndRecorder;
 			sourceTree = "<group>";
@@ -144,6 +154,19 @@
 				CDBC45AE2474E3E10073D279 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDBC45B02475882D0073D279 /* AudioGraphPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				CDBC45B62475882D0073D279 /* AGPCore.hpp */,
+				CDBC45B12475882D0073D279 /* AGPCore.cpp */,
+				CDBC45B52475882D0073D279 /* AGPViewController.h */,
+				CDBC45B22475882D0073D279 /* AGPViewController.m */,
+				CDBC45B32475882D0073D279 /* AudioGraphPlayer.h */,
+				CDBC45B42475882D0073D279 /* AudioGraphPlayer.mm */,
+			);
+			path = AudioGraphPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,9 +244,12 @@
 				CD2B07E72474D985009F2E76 /* AudioUnitException.cpp in Sources */,
 				CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */,
 				CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */,
+				CDBC45B92475882D0073D279 /* AudioGraphPlayer.mm in Sources */,
 				CD2B07BE2472E051009F2E76 /* main.m in Sources */,
+				CDBC45B72475882D0073D279 /* AGPCore.cpp in Sources */,
 				CD2B07B02472E04E009F2E76 /* SceneDelegate.m in Sources */,
 				CD2B07DB2472EA96009F2E76 /* AUPViewController.m in Sources */,
+				CDBC45B82475882D0073D279 /* AGPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
