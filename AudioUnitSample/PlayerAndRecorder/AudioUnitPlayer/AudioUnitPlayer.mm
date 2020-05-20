@@ -7,23 +7,41 @@
 //
 
 #import "AudioUnitPlayer.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "AUPCore.hpp"
 
-@implementation AudioUnitPlayer
+@implementation AudioUnitPlayer {
+    AUPCore *_core;
+}
 
-- (void)loadPCMFIleWithPath:(NSString *)path {
-    
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _core = new AUPCore();
+        _core->initialize();
+    }
+    return self;
+}
+
+- (void)loadPCMFIleWithPath:(NSURL *)path {
+    _core->loadPCMFile((__bridge CFURLRef)path);
 }
 
 - (void)play {
-    
+    _core->play();
 }
 
 - (void)pause {
-    
+    _core->pause();
 }
 
 - (void)stop {
-    
+    _core->stop();
+}
+
+- (void)dealloc {
+    delete _core;
 }
 
 

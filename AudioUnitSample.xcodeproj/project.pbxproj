@@ -17,6 +17,8 @@
 		CD2B07DC2472EA96009F2E76 /* Butterfly.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07DA2472EA96009F2E76 /* Butterfly.wav */; };
 		CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07DE247371E0009F2E76 /* AudioUnitPlayer.mm */; };
 		CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07E02473732E009F2E76 /* AUPCore.cpp */; };
+		CD2B07E72474D985009F2E76 /* AudioUnitException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07E52474D985009F2E76 /* AudioUnitException.cpp */; };
+		CDBC45AF2474E3E10073D279 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC45AE2474E3E10073D279 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		CD2B07DE247371E0009F2E76 /* AudioUnitPlayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioUnitPlayer.mm; sourceTree = "<group>"; };
 		CD2B07E02473732E009F2E76 /* AUPCore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AUPCore.cpp; sourceTree = "<group>"; };
 		CD2B07E12473732E009F2E76 /* AUPCore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AUPCore.hpp; sourceTree = "<group>"; };
+		CD2B07E52474D985009F2E76 /* AudioUnitException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioUnitException.cpp; sourceTree = "<group>"; };
+		CD2B07E62474D985009F2E76 /* AudioUnitException.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioUnitException.hpp; sourceTree = "<group>"; };
+		CDBC45AE2474E3E10073D279 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDBC45AF2474E3E10073D279 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +61,7 @@
 			children = (
 				CD2B07AA2472E04E009F2E76 /* AudioUnitSample */,
 				CD2B07A92472E04E009F2E76 /* Products */,
+				CDBC45AD2474E3E00073D279 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,7 @@
 		CD2B07D52472EA96009F2E76 /* PlayerAndRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				CD2B07E32474D94F009F2E76 /* Shared */,
 				CD2B07D62472EA96009F2E76 /* AudioUnitPlayer */,
 			);
 			path = PlayerAndRecorder;
@@ -119,6 +127,23 @@
 				CD2B07DA2472EA96009F2E76 /* Butterfly.wav */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		CD2B07E32474D94F009F2E76 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CD2B07E52474D985009F2E76 /* AudioUnitException.cpp */,
+				CD2B07E62474D985009F2E76 /* AudioUnitException.hpp */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CDBC45AD2474E3E00073D279 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDBC45AE2474E3E10073D279 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */,
+				CD2B07E72474D985009F2E76 /* AudioUnitException.cpp in Sources */,
 				CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */,
 				CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */,
 				CD2B07BE2472E051009F2E76 /* main.m in Sources */,

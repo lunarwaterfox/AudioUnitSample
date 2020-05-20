@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AudioUnitPlayer : NSObject
 
-- (void)loadPCMFIleWithPath:(NSString *)path;
+- (void)loadPCMFIleWithPath:(NSURL *)path;
 - (void)play;
 - (void)pause;
 - (void)stop;

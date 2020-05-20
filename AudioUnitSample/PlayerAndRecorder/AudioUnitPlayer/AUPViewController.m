@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _player = [[AudioUnitPlayer alloc] init];
 }
 
 /*
@@ -31,7 +32,7 @@
 */
 
 - (IBAction)ready:(id)sender {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Butterfly" ofType:@"wav"];
+    NSURL *path = [[NSBundle mainBundle] URLForResource:@"Butterfly" withExtension:@"wav"];
     [_player loadPCMFIleWithPath:path];
 }
 

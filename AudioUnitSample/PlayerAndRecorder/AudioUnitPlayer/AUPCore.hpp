@@ -14,6 +14,8 @@
 class AUPCore {
 private:
     AudioUnit _ioUnit;
+    CFURLRef _url;
+    CFReadStreamRef _stream;
     
     static OSStatus renderCallback(void* inRefCon,
                                    AudioUnitRenderActionFlags* ioActionFlags,
@@ -25,9 +27,9 @@ private:
 public:
     ~AUPCore();
     void initialize();
-    void loadPCMFile(CFStringRef path);
+    void loadPCMFile(CFURLRef url);
     void play() const noexcept;
-    void stop() const noexcept;
+    void stop() noexcept;
     void pause() const noexcept;
 };
 
