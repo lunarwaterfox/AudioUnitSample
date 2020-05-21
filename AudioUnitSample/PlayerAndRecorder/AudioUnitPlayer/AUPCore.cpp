@@ -109,6 +109,10 @@ void AUPCore::loadPCMFile(CFStringRef url) {
     WAVHeader header;
     
     const char *str = CFStringGetCStringPtr(url, kCFStringEncodingUTF8);
+    if (_stream.is_open()) {
+        _stream.close();
+    }
+    
     _stream.open(str);
     _stream.read((char *)&header, sizeof(header));
 
@@ -149,7 +153,7 @@ void AUPCore::stop() {
 void AUPCore::pause() const {
     OSStatus status = AudioOutputUnitStop(_ioUnit);
     if (status != noErr) {
-        throw AudioUnitException("Audio Unit stop failed.");
+        throw AudioUnitException("Audio Unit pause failed.");
     }
 }
 

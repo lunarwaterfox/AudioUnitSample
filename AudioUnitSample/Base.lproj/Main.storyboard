@@ -90,6 +90,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="pK9-gj-QwG" kind="show" id="dvX-fs-h89"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -239,7 +242,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPM-GA-O4i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="-115"/>
+            <point key="canvasLocation" x="830" y="-311"/>
+        </scene>
+        <!--播放任意格式文件（AUAudioFilePlayer）-->
+        <scene sceneID="fTH-Eq-W6x">
+            <objects>
+                <viewController id="pK9-gj-QwG" customClass="AFPViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zOj-0E-INE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPh-xz-qsS">
+                                <rect key="frame" x="191.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="暂停"/>
+                                <connections>
+                                    <action selector="pause:" destination="pK9-gj-QwG" eventType="touchUpInside" id="F1s-x1-w0w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-FZ-vEZ">
+                                <rect key="frame" x="282.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stop:" destination="pK9-gj-QwG" eventType="touchUpInside" id="9rs-yS-vd9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBz-nH-2LN">
+                                <rect key="frame" x="184" y="370" width="46" height="30"/>
+                                <state key="normal" title="初始化"/>
+                                <connections>
+                                    <action selector="ready:" destination="pK9-gj-QwG" eventType="touchUpInside" id="DeW-Fu-JBG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idt-Ls-NL8">
+                                <rect key="frame" x="100.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="播放"/>
+                                <connections>
+                                    <action selector="start:" destination="pK9-gj-QwG" eventType="touchUpInside" id="noN-FJ-VuJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用 AUAudioFilePlayer 播放任意格式文件 AUAudioFilePlayer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhd-zP-enJ">
+                                <rect key="frame" x="20" y="112" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6jk-cF-mta" firstAttribute="trailing" secondItem="hhd-zP-enJ" secondAttribute="trailing" constant="20" id="6pE-wr-Jux"/>
+                            <constraint firstItem="fPh-xz-qsS" firstAttribute="top" secondItem="hBz-nH-2LN" secondAttribute="bottom" constant="60" id="8Kz-aO-pF6"/>
+                            <constraint firstItem="fPh-xz-qsS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Idt-Ls-NL8" secondAttribute="trailing" id="AaD-HW-sUk"/>
+                            <constraint firstItem="Idt-Ls-NL8" firstAttribute="leading" secondItem="6jk-cF-mta" secondAttribute="leading" constant="100.5" id="GZn-bs-I9P"/>
+                            <constraint firstItem="hhd-zP-enJ" firstAttribute="top" secondItem="6jk-cF-mta" secondAttribute="top" constant="24" id="IZK-1N-7We"/>
+                            <constraint firstItem="hBz-nH-2LN" firstAttribute="centerX" secondItem="fPh-xz-qsS" secondAttribute="centerX" id="Qui-So-tRe"/>
+                            <constraint firstItem="Idt-Ls-NL8" firstAttribute="centerY" secondItem="fPh-xz-qsS" secondAttribute="centerY" id="UWU-2e-MY8"/>
+                            <constraint firstItem="hBz-nH-2LN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hhd-zP-enJ" secondAttribute="bottom" constant="8" id="YBH-G5-PZC"/>
+                            <constraint firstItem="hhd-zP-enJ" firstAttribute="leading" secondItem="6jk-cF-mta" secondAttribute="leading" constant="20" id="aJJ-YQ-OwF"/>
+                            <constraint firstItem="6jk-cF-mta" firstAttribute="trailing" secondItem="Ryp-FZ-vEZ" secondAttribute="trailing" constant="100.5" id="khq-IX-khr"/>
+                            <constraint firstItem="fPh-xz-qsS" firstAttribute="centerX" secondItem="6jk-cF-mta" secondAttribute="centerX" id="mFa-gn-SMM"/>
+                            <constraint firstItem="Ryp-FZ-vEZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fPh-xz-qsS" secondAttribute="trailing" constant="8" symbolic="YES" id="wvH-iz-6s4"/>
+                            <constraint firstItem="fPh-xz-qsS" firstAttribute="centerY" secondItem="6jk-cF-mta" secondAttribute="centerY" id="xud-Gh-GQk"/>
+                            <constraint firstItem="fPh-xz-qsS" firstAttribute="centerY" secondItem="Ryp-FZ-vEZ" secondAttribute="centerY" id="zDO-f5-BGx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6jk-cF-mta"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="播放任意格式文件（AUAudioFilePlayer）" id="Sbo-Oh-z7E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5q-Zy-r4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="86"/>
         </scene>
     </scenes>
 </document>

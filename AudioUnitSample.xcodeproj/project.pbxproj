@@ -22,6 +22,10 @@
 		CDBC45B72475882D0073D279 /* AGPCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45B12475882D0073D279 /* AGPCore.cpp */; };
 		CDBC45B82475882D0073D279 /* AGPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45B22475882D0073D279 /* AGPViewController.m */; };
 		CDBC45B92475882D0073D279 /* AudioGraphPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45B42475882D0073D279 /* AudioGraphPlayer.mm */; };
+		CDBC45C12476E15C0073D279 /* AFPCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45BD2476E15C0073D279 /* AFPCore.cpp */; };
+		CDBC45C22476E15C0073D279 /* AudioFilePlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45BE2476E15C0073D279 /* AudioFilePlayer.mm */; };
+		CDBC45C62476E1ED0073D279 /* AFPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45C52476E1ED0073D279 /* AFPViewController.m */; };
+		CDBC45C82476E9460073D279 /* Fireworks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDBC45C72476E9460073D279 /* Fireworks.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,13 @@
 		CDBC45B42475882D0073D279 /* AudioGraphPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioGraphPlayer.mm; sourceTree = "<group>"; };
 		CDBC45B52475882D0073D279 /* AGPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPViewController.h; sourceTree = "<group>"; };
 		CDBC45B62475882D0073D279 /* AGPCore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AGPCore.hpp; sourceTree = "<group>"; };
+		CDBC45BB2476E15C0073D279 /* AFPCore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AFPCore.hpp; sourceTree = "<group>"; };
+		CDBC45BC2476E15C0073D279 /* AudioFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFilePlayer.h; sourceTree = "<group>"; };
+		CDBC45BD2476E15C0073D279 /* AFPCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AFPCore.cpp; sourceTree = "<group>"; };
+		CDBC45BE2476E15C0073D279 /* AudioFilePlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFilePlayer.mm; sourceTree = "<group>"; };
+		CDBC45C42476E1ED0073D279 /* AFPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFPViewController.h; sourceTree = "<group>"; };
+		CDBC45C52476E1ED0073D279 /* AFPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFPViewController.m; sourceTree = "<group>"; };
+		CDBC45C72476E9460073D279 /* Fireworks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fireworks.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +122,7 @@
 		CD2B07D52472EA96009F2E76 /* PlayerAndRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				CDBC45BA2476E0820073D279 /* AudioFilePlayer */,
 				CDBC45B02475882D0073D279 /* AudioGraphPlayer */,
 				CD2B07D62472EA96009F2E76 /* AudioUnitPlayer */,
 				CD2B07E32474D94F009F2E76 /* Shared */,
@@ -135,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				CD2B07DA2472EA96009F2E76 /* Butterfly.wav */,
+				CDBC45C72476E9460073D279 /* Fireworks.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -167,6 +180,19 @@
 				CDBC45B42475882D0073D279 /* AudioGraphPlayer.mm */,
 			);
 			path = AudioGraphPlayer;
+			sourceTree = "<group>";
+		};
+		CDBC45BA2476E0820073D279 /* AudioFilePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				CDBC45BD2476E15C0073D279 /* AFPCore.cpp */,
+				CDBC45BB2476E15C0073D279 /* AFPCore.hpp */,
+				CDBC45BC2476E15C0073D279 /* AudioFilePlayer.h */,
+				CDBC45BE2476E15C0073D279 /* AudioFilePlayer.mm */,
+				CDBC45C42476E1ED0073D279 /* AFPViewController.h */,
+				CDBC45C52476E1ED0073D279 /* AFPViewController.m */,
+			);
+			path = AudioFilePlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDBC45C82476E9460073D279 /* Fireworks.mp3 in Resources */,
 				CD2B07BB2472E051009F2E76 /* LaunchScreen.storyboard in Resources */,
 				CD2B07B82472E051009F2E76 /* Assets.xcassets in Resources */,
 				CD2B07DC2472EA96009F2E76 /* Butterfly.wav in Resources */,
@@ -240,10 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDBC45C12476E15C0073D279 /* AFPCore.cpp in Sources */,
 				CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */,
 				CD2B07E72474D985009F2E76 /* AudioUnitException.cpp in Sources */,
 				CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */,
+				CDBC45C62476E1ED0073D279 /* AFPViewController.m in Sources */,
 				CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */,
+				CDBC45C22476E15C0073D279 /* AudioFilePlayer.mm in Sources */,
 				CDBC45B92475882D0073D279 /* AudioGraphPlayer.mm in Sources */,
 				CD2B07BE2472E051009F2E76 /* main.m in Sources */,
 				CDBC45B72475882D0073D279 /* AGPCore.cpp in Sources */,

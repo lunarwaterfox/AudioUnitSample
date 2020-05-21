@@ -101,16 +101,16 @@ void AGPCore::initialize() {
     AURenderCallbackStruct input;
     input.inputProc = AGPCore::renderCallback;
     input.inputProcRefCon = this;
-
-    status = AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_SetRenderCallback, kAudioUnitScope_Input, 0, &input, sizeof(input));
+    
+    status = AUGraphSetNodeInputCallback(_aGraph, _ioNode, 0, &input);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit set callback failed.");
     }
     
     // 初始化
-    status = AudioUnitInitialize(_ioUnit);
+    status = AUGraphInitialize(_aGraph);
     if (status != noErr) {
-        throw AudioUnitException("Audio Unit initialize failed.");
+        throw AudioUnitException("Audio Unit Initialize failed.");
     }
 }
 
@@ -119,6 +119,10 @@ void AGPCore::loadPCMFile(CFStringRef url) {
     WAVHeader header;
     
     const char *str = CFStringGetCStringPtr(url, kCFStringEncodingUTF8);
+    if (_stream.is_open()) {
+        _stream.close();
+    }
+    
     _stream.open(str);
     _stream.read((char *)&header, sizeof(header));
 
@@ -140,14 +144,14 @@ void AGPCore::loadPCMFile(CFStringRef url) {
 }
 
 void AGPCore::play() const {
-    OSStatus status = AudioOutputUnitStart(_ioUnit);
+    OSStatus status = AUGraphStart(_aGraph);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit play failed.");
     }
 }
 
 void AGPCore::stop() {
-    OSStatus status = AudioOutputUnitStop(_ioUnit);
+    OSStatus status = AUGraphStop(_aGraph);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit stop failed.");
     }
@@ -157,9 +161,9 @@ void AGPCore::stop() {
 }
 
 void AGPCore::pause() const {
-    OSStatus status = AudioOutputUnitStop(_ioUnit);
+    OSStatus status = AUGraphStop(_aGraph);
     if (status != noErr) {
-        throw AudioUnitException("Audio Unit stop failed.");
+        throw AudioUnitException("Audio Unit pause failed.");
     }
 }
 
