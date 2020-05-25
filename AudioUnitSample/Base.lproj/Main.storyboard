@@ -94,6 +94,26 @@
                                             <segue destination="pK9-gj-QwG" kind="show" id="dvX-fs-h89"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="UzT-e1-hyf" style="IBUITableViewCellStyleDefault" id="U9r-yd-nJC">
+                                        <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U9r-yd-nJC" id="vUi-wf-XCM">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="播放Midi（MusicDevice）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UzT-e1-hyf">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iw2-MV-FU1" kind="show" id="c1b-Da-izj"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -107,6 +127,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ya-X5-EPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-514" y="-340"/>
+        </scene>
+        <!--播放Midi（MusicDevice）-->
+        <scene sceneID="cHZ-z8-z1Z">
+            <objects>
+                <viewController id="iw2-MV-FU1" customClass="AMDViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sac-oH-Ea6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dQa-o7-uxj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="播放Midi（MusicDevice）" id="MVR-0v-ByK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXO-6L-8z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117" y="-315"/>
         </scene>
         <!--播放Wav（AudioUnit）-->
         <scene sceneID="ytz-s8-ekR">
