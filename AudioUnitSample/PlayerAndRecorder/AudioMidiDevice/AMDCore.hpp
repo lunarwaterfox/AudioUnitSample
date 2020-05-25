@@ -24,6 +24,9 @@ private:
 public:
     ~AMDCore();
     void initialize();
+    void loadPresetFile(CFURLRef url);
+    void play();
+    void stop();
 };
 
 #endif /* AMDCore_hpp */

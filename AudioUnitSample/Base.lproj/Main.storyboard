@@ -111,7 +111,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="iw2-MV-FU1" kind="show" id="c1b-Da-izj"/>
+                                            <segue destination="u9M-bB-Ur5" kind="show" id="Zhw-UN-mXm"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -127,22 +127,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ya-X5-EPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-514" y="-340"/>
-        </scene>
-        <!--播放Midi（MusicDevice）-->
-        <scene sceneID="cHZ-z8-z1Z">
-            <objects>
-                <viewController id="iw2-MV-FU1" customClass="AMDViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Sac-oH-Ea6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="dQa-o7-uxj"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="播放Midi（MusicDevice）" id="MVR-0v-ByK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jXO-6L-8z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="117" y="-315"/>
         </scene>
         <!--播放Wav（AudioUnit）-->
         <scene sceneID="ytz-s8-ekR">
@@ -210,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oa-Rq-S8s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="674" y="-678"/>
+            <point key="canvasLocation" x="486" y="-690"/>
         </scene>
         <!--播放Wav（AudioGraph）-->
         <scene sceneID="r6L-Lo-7zy">
@@ -347,6 +331,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5q-Zy-r4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="328" y="86"/>
+        </scene>
+        <!--播放Midi（MusicDevice）-->
+        <scene sceneID="TTH-8T-F1z">
+            <objects>
+                <viewController id="u9M-bB-Ur5" customClass="AMDViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k0a-bH-77E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezX-cA-PQs">
+                                <rect key="frame" x="192" y="460" width="30" height="30"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgc-WU-3ZF">
+                                <rect key="frame" x="282.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stop:" destination="u9M-bB-Ur5" eventType="touchUpInside" id="SuC-2H-vsf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd8-mb-o6u">
+                                <rect key="frame" x="184" y="370" width="46" height="30"/>
+                                <state key="normal" title="初始化"/>
+                                <connections>
+                                    <action selector="ready:" destination="u9M-bB-Ur5" eventType="touchUpInside" id="pdE-X2-fLu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gN4-gb-nAS">
+                                <rect key="frame" x="100.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="播放"/>
+                                <connections>
+                                    <action selector="start:" destination="u9M-bB-Ur5" eventType="touchUpInside" id="AE3-xR-EVJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="播放Midi（MusicDevice）" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs1-Gq-1vY">
+                                <rect key="frame" x="20" y="112" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cUW-BT-neX" firstAttribute="trailing" secondItem="hgc-WU-3ZF" secondAttribute="trailing" constant="100.5" id="20m-J4-BPI"/>
+                            <constraint firstItem="ezX-cA-PQs" firstAttribute="centerY" secondItem="hgc-WU-3ZF" secondAttribute="centerY" id="2f8-le-k4D"/>
+                            <constraint firstItem="xd8-mb-o6u" firstAttribute="centerX" secondItem="ezX-cA-PQs" secondAttribute="centerX" id="Dsb-Qe-lXd"/>
+                            <constraint firstItem="ezX-cA-PQs" firstAttribute="centerX" secondItem="cUW-BT-neX" secondAttribute="centerX" id="Kfe-Dq-oFD"/>
+                            <constraint firstItem="xs1-Gq-1vY" firstAttribute="top" secondItem="cUW-BT-neX" secondAttribute="top" constant="24" id="Ohi-eX-8BC"/>
+                            <constraint firstItem="xs1-Gq-1vY" firstAttribute="leading" secondItem="cUW-BT-neX" secondAttribute="leading" constant="20" id="SvS-g5-foy"/>
+                            <constraint firstItem="hgc-WU-3ZF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ezX-cA-PQs" secondAttribute="trailing" constant="8" symbolic="YES" id="YeI-Zu-wHA"/>
+                            <constraint firstItem="xd8-mb-o6u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xs1-Gq-1vY" secondAttribute="bottom" constant="8" id="i3f-uX-0DD"/>
+                            <constraint firstItem="ezX-cA-PQs" firstAttribute="centerY" secondItem="cUW-BT-neX" secondAttribute="centerY" id="iVH-aK-bQx"/>
+                            <constraint firstItem="ezX-cA-PQs" firstAttribute="top" secondItem="xd8-mb-o6u" secondAttribute="bottom" constant="60" id="mkV-8m-EPT"/>
+                            <constraint firstItem="gN4-gb-nAS" firstAttribute="centerY" secondItem="ezX-cA-PQs" secondAttribute="centerY" id="rah-on-8n8"/>
+                            <constraint firstItem="cUW-BT-neX" firstAttribute="trailing" secondItem="xs1-Gq-1vY" secondAttribute="trailing" constant="20" id="rzO-Eh-VYK"/>
+                            <constraint firstItem="gN4-gb-nAS" firstAttribute="leading" secondItem="cUW-BT-neX" secondAttribute="leading" constant="100.5" id="vCG-c9-jmC"/>
+                            <constraint firstItem="ezX-cA-PQs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gN4-gb-nAS" secondAttribute="trailing" id="xbb-qB-SJT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cUW-BT-neX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="播放Midi（MusicDevice）" id="V3c-I3-V4O"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k7f-tz-2Fl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="-37"/>
         </scene>
     </scenes>
 </document>

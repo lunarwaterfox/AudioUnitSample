@@ -68,19 +68,19 @@ void AMDCore::initialize() {
         throw AudioUnitException("Audio Unit connect failed.");
     }
     
-    status = AUGraphInitialize(_aGraph);
+    //
+    status = AudioUnitInitialize(_ioUnit);
     if (status != noErr) {
         throw AudioUnitException("Audio Unit Initialize failed.");
     }
     
-    UInt32 sampleRate = 44100;
+    Float64 sampleRate = 44100;
     UInt32 sampleRateSize = sizeof(sampleRate);
     
     status = AudioUnitSetProperty(_ioUnit, kAudioUnitProperty_SampleRate, kAudioUnitScope_Output, 0, &sampleRate, sampleRateSize);
     if (status != noErr) {
        throw AudioUnitException("Audio Unit set sample rate failed.");
     }
-
     
     UInt32 framesPerSlice = 0;
     UInt32 framesPerSlicePropertySize = sizeof(framesPerSlice);
@@ -99,7 +99,63 @@ void AMDCore::initialize() {
     if (status != noErr) {
        throw AudioUnitException("Audio Unit set slice frame failed.");
     }
+    
+    
+    status = AUGraphInitialize(_aGraph);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Unit Initialize failed.");
+    }
+    
+    status = AUGraphStart(_aGraph);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Unit Initialize failed.");
+    }
 }
+
+
+
+void AMDCore::loadPresetFile(CFURLRef url) {
+    CFDataRef propertyResourceData = 0;
+    SInt32 errorCode = 0;
+    OSStatus result = noErr;
+       
+    Boolean status = CFURLCreateDataAndPropertiesFromResource(kCFAllocatorDefault, url, &propertyResourceData, NULL, NULL, &errorCode);
+    if (status == true && propertyResourceData != 0) {
+        
+    }
+       
+    CFPropertyListFormat dataFormat;
+    CFErrorRef errorRef = 0;
+    CFPropertyListRef presetPropertyList = CFPropertyListCreateWithData(kCFAllocatorDefault, propertyResourceData, kCFPropertyListImmutable, &dataFormat, &errorRef);
+
+    if (presetPropertyList != 0) {
+           result = AudioUnitSetProperty(_samplerUnit, kAudioUnitProperty_ClassInfo, kAudioUnitScope_Global, 0, &presetPropertyList, sizeof(CFPropertyListRef));
+           CFRelease(presetPropertyList);
+    }
+
+    if (errorRef) {
+        CFRelease(errorRef);
+    }
+        
+    CFRelease (propertyResourceData);
+}
+
+void AMDCore::play() {
+    UInt32 noteNum = 48;
+    UInt32 onVelocity = 127;
+    UInt32 noteCommand = 9 << 4 | 0;
+        
+    OSStatus result = MusicDeviceMIDIEvent(_samplerUnit, noteCommand, noteNum, onVelocity, 0);
+}
+
+void AMDCore::stop() {
+    UInt32 noteNum = 48;
+    UInt32 noteCommand = 8 << 4 | 0;
+        
+    OSStatus result = MusicDeviceMIDIEvent(_samplerUnit, noteCommand, noteNum, 0, 0);
+}
+
+
 
 AMDCore::~AMDCore() {
     

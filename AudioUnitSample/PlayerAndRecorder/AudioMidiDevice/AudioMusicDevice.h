@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AudioMusicDevice : NSObject
 
+-(void)loadPresetFile:(NSURL *)path;
+-(void)play;
+-(void)stop;
+
 @end
 
 NS_ASSUME_NONNULL_END

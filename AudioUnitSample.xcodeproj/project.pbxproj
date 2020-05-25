@@ -29,6 +29,7 @@
 		CDBC45CC247B58FC0073D279 /* AMDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45CB247B58FC0073D279 /* AMDViewController.m */; };
 		CDBC45CF247B596C0073D279 /* AudioMusicDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45CE247B596C0073D279 /* AudioMusicDevice.mm */; };
 		CDBC45D5247B5A290073D279 /* AMDCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDBC45D3247B5A290073D279 /* AMDCore.cpp */; };
+		CDBC45D7247C21820073D279 /* Vibraphone.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = CDBC45D6247C21820073D279 /* Vibraphone.aupreset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		CDBC45CE247B596C0073D279 /* AudioMusicDevice.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioMusicDevice.mm; sourceTree = "<group>"; };
 		CDBC45D3247B5A290073D279 /* AMDCore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AMDCore.cpp; sourceTree = "<group>"; };
 		CDBC45D4247B5A290073D279 /* AMDCore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AMDCore.hpp; sourceTree = "<group>"; };
+		CDBC45D6247C21820073D279 /* Vibraphone.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Vibraphone.aupreset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			children = (
 				CD2B07DA2472EA96009F2E76 /* Butterfly.wav */,
 				CDBC45C72476E9460073D279 /* Fireworks.mp3 */,
+				CDBC45D6247C21820073D279 /* Vibraphone.aupreset */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				CD2B07BB2472E051009F2E76 /* LaunchScreen.storyboard in Resources */,
 				CD2B07B82472E051009F2E76 /* Assets.xcassets in Resources */,
 				CD2B07DC2472EA96009F2E76 /* Butterfly.wav in Resources */,
+				CDBC45D7247C21820073D279 /* Vibraphone.aupreset in Resources */,
 				CD2B07B62472E04E009F2E76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

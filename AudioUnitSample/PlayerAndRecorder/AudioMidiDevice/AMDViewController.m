@@ -7,8 +7,12 @@
 //
 
 #import "AMDViewController.h"
+#import "AudioMusicDevice.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AMDViewController ()
+
+@property (nonatomic, strong) AudioMusicDevice *player;
 
 @end
 
@@ -17,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    AVAudioSession* audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [audioSession setPreferredSampleRate: 44100 error:nil];
+    [audioSession setPreferredIOBufferDuration: 0.02 error:nil];
+    [audioSession setActive:YES error:nil];
+    
+    _player = [[AudioMusicDevice alloc] init];
 }
 
 /*
@@ -28,5 +40,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)ready:(id)sender {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Vibraphone" withExtension:@"aupreset"];
+    [_player loadPresetFile:url];
+}
+
+- (IBAction)start:(id)sender {
+    [_player play];
+}
+
+- (IBAction)stop:(id)sender {
+    [_player stop];
+}
 
 @end
