@@ -115,29 +115,29 @@ void AMDCore::initialize() {
 
 
 void AMDCore::loadPresetFile(CFURLRef url) {
-    CFDataRef propertyResourceData = 0;
-    SInt32 errorCode = 0;
-    OSStatus result = noErr;
-       
-    Boolean status = CFURLCreateDataAndPropertiesFromResource(kCFAllocatorDefault, url, &propertyResourceData, NULL, NULL, &errorCode);
-    if (status == true && propertyResourceData != 0) {
-        
-    }
+    CFReadStreamRef stream = CFReadStreamCreateWithFile(kCFAllocatorDefault, url);
+    CFReadStreamOpen(stream);
+    
        
     CFPropertyListFormat dataFormat;
     CFErrorRef errorRef = 0;
-    CFPropertyListRef presetPropertyList = CFPropertyListCreateWithData(kCFAllocatorDefault, propertyResourceData, kCFPropertyListImmutable, &dataFormat, &errorRef);
+    CFPropertyListRef presetPropertyList = CFPropertyListCreateWithStream(kCFAllocatorDefault, stream, 0, kCFPropertyListImmutable, &dataFormat, &errorRef);
 
     if (presetPropertyList != 0) {
-           result = AudioUnitSetProperty(_samplerUnit, kAudioUnitProperty_ClassInfo, kAudioUnitScope_Global, 0, &presetPropertyList, sizeof(CFPropertyListRef));
-           CFRelease(presetPropertyList);
+        OSStatus status = AudioUnitSetProperty(_samplerUnit, kAudioUnitProperty_ClassInfo, kAudioUnitScope_Global, 0, &presetPropertyList, sizeof(CFPropertyListRef));
+        if (status != noErr) {
+            throw AudioUnitException("Audio Unit load preset failed.");
+        }
+        
+        CFRelease(presetPropertyList);
     }
 
     if (errorRef) {
         CFRelease(errorRef);
     }
-        
-    CFRelease (propertyResourceData);
+    
+    CFReadStreamClose(stream);
+    CFRelease(stream);
 }
 
 void AMDCore::play() {
@@ -145,18 +145,29 @@ void AMDCore::play() {
     UInt32 onVelocity = 127;
     UInt32 noteCommand = 9 << 4 | 0;
         
-    OSStatus result = MusicDeviceMIDIEvent(_samplerUnit, noteCommand, noteNum, onVelocity, 0);
+    OSStatus status = MusicDeviceMIDIEvent(_samplerUnit, noteCommand, noteNum, onVelocity, 0);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Unit load play failed.");
+    }
 }
 
 void AMDCore::stop() {
     UInt32 noteNum = 48;
     UInt32 noteCommand = 8 << 4 | 0;
         
-    OSStatus result = MusicDeviceMIDIEvent(_samplerUnit, noteCommand, noteNum, 0, 0);
+    OSStatus status = MusicDeviceMIDIEvent(_samplerUnit, noteCommand, noteNum, 0, 0);
+    if (status != noErr) {
+        throw AudioUnitException("Audio Unit load stop failed.");
+    }
 }
 
 
 
 AMDCore::~AMDCore() {
-    
+    AUGraphStop(_aGraph);
+    AUGraphUninitialize(_aGraph);
+    AUGraphClose(_aGraph);
+    AUGraphRemoveNode(_aGraph, _ioNode);
+    AUGraphRemoveNode(_aGraph, _samplerNode);
+    DisposeAUGraph(_aGraph);
 }

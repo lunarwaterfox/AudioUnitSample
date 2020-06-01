@@ -169,8 +169,11 @@ void AGPCore::pause() const {
 
 
 AGPCore::~AGPCore() {
-    AudioOutputUnitStop(_ioUnit);
-    AudioUnitUninitialize(_ioUnit);
+    AUGraphStop(_aGraph);
+    AUGraphUninitialize(_aGraph);
+    AUGraphClose(_aGraph);
+    AUGraphRemoveNode(_aGraph, _ioNode);
+    DisposeAUGraph(_aGraph);
     
     _stream.close();
 }
