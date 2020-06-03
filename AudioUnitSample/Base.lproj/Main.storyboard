@@ -114,6 +114,26 @@
                                             <segue destination="u9M-bB-Ur5" kind="show" id="Zhw-UN-mXm"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="4FV-cZ-sbj" style="IBUITableViewCellStyleDefault" id="icu-h5-BHQ">
+                                        <rect key="frame" x="0.0" y="202" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="icu-h5-BHQ" id="AaX-Wq-J9d">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="制作Midi文件（GenericOutput）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4FV-cZ-sbj">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xoQ-4X-JNJ" kind="show" id="vPa-qm-YXO"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -262,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPM-GA-O4i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-311"/>
+            <point key="canvasLocation" x="1397" y="-688"/>
         </scene>
         <!--播放任意格式文件（AUAudioFilePlayer）-->
         <scene sceneID="fTH-Eq-W6x">
@@ -330,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5q-Zy-r4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="86"/>
+            <point key="canvasLocation" x="2145" y="-749"/>
         </scene>
         <!--播放Midi（MusicDevice）-->
         <scene sceneID="TTH-8T-F1z">
@@ -394,7 +414,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7f-tz-2Fl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="328" y="40"/>
+            <point key="canvasLocation" x="348" y="-131"/>
+        </scene>
+        <!--制作Midi文件（GenericOutput）-->
+        <scene sceneID="Fye-nd-JHv">
+            <objects>
+                <viewController id="xoQ-4X-JNJ" customClass="AMWViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zpp-LA-rk5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saK-LV-KTF">
+                                <rect key="frame" x="192" y="460" width="30" height="30"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnO-Ou-CEw">
+                                <rect key="frame" x="282.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stop:" destination="xoQ-4X-JNJ" eventType="touchUpInside" id="f9m-N4-789"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-vA-SXQ">
+                                <rect key="frame" x="184" y="370" width="46" height="30"/>
+                                <state key="normal" title="初始化"/>
+                                <connections>
+                                    <action selector="ready:" destination="xoQ-4X-JNJ" eventType="touchUpInside" id="L7v-sX-Nky"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-N8-Gn6">
+                                <rect key="frame" x="100.5" y="460" width="31" height="30"/>
+                                <state key="normal" title="播放"/>
+                                <connections>
+                                    <action selector="play:" destination="xoQ-4X-JNJ" eventType="touchUpInside" id="oij-zM-zbf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将MusicDevice生成的Midi制成频文件，需要截入音色库" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E52-PU-Kpm">
+                                <rect key="frame" x="20" y="112" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VS6-pK-CvE">
+                                <rect key="frame" x="100.5" y="410" width="31" height="30"/>
+                                <state key="normal" title="写入"/>
+                                <connections>
+                                    <action selector="write:" destination="xoQ-4X-JNJ" eventType="touchUpInside" id="rzD-CU-0sA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBx-dI-8gi">
+                                <rect key="frame" x="282" y="410" width="31" height="30"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="close:" destination="xoQ-4X-JNJ" eventType="touchUpInside" id="Puf-tA-LmL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kGr-N8-Gn6" firstAttribute="leading" secondItem="fUx-mF-IZf" secondAttribute="leading" constant="100.5" id="0ef-9Z-ImE"/>
+                            <constraint firstItem="SBx-dI-8gi" firstAttribute="centerX" secondItem="QnO-Ou-CEw" secondAttribute="centerX" id="2dI-W6-Wao"/>
+                            <constraint firstItem="saK-LV-KTF" firstAttribute="centerX" secondItem="fUx-mF-IZf" secondAttribute="centerX" id="3O1-TP-BT8"/>
+                            <constraint firstItem="saK-LV-KTF" firstAttribute="centerY" secondItem="fUx-mF-IZf" secondAttribute="centerY" id="Ac5-kC-Gsl"/>
+                            <constraint firstItem="E52-PU-Kpm" firstAttribute="top" secondItem="fUx-mF-IZf" secondAttribute="top" constant="24" id="BKM-vl-nNr"/>
+                            <constraint firstItem="saK-LV-KTF" firstAttribute="top" secondItem="XS2-vA-SXQ" secondAttribute="bottom" constant="60" id="FXG-R7-mIf"/>
+                            <constraint firstItem="XS2-vA-SXQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="E52-PU-Kpm" secondAttribute="bottom" constant="8" id="ICy-9X-afD"/>
+                            <constraint firstItem="E52-PU-Kpm" firstAttribute="leading" secondItem="fUx-mF-IZf" secondAttribute="leading" constant="20" id="PmD-YG-RCi"/>
+                            <constraint firstItem="kGr-N8-Gn6" firstAttribute="top" secondItem="VS6-pK-CvE" secondAttribute="bottom" constant="20" id="Rhe-JQ-BaF"/>
+                            <constraint firstItem="VS6-pK-CvE" firstAttribute="centerX" secondItem="kGr-N8-Gn6" secondAttribute="centerX" id="TTH-d9-w60"/>
+                            <constraint firstItem="QnO-Ou-CEw" firstAttribute="top" secondItem="SBx-dI-8gi" secondAttribute="bottom" constant="20" id="W3j-La-bti"/>
+                            <constraint firstItem="kGr-N8-Gn6" firstAttribute="centerY" secondItem="saK-LV-KTF" secondAttribute="centerY" id="ev4-9p-edZ"/>
+                            <constraint firstItem="saK-LV-KTF" firstAttribute="centerY" secondItem="QnO-Ou-CEw" secondAttribute="centerY" id="ir4-hw-lgc"/>
+                            <constraint firstItem="fUx-mF-IZf" firstAttribute="trailing" secondItem="E52-PU-Kpm" secondAttribute="trailing" constant="20" id="nOU-En-7aO"/>
+                            <constraint firstItem="QnO-Ou-CEw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="saK-LV-KTF" secondAttribute="trailing" constant="8" symbolic="YES" id="r0w-2Q-zKn"/>
+                            <constraint firstItem="fUx-mF-IZf" firstAttribute="trailing" secondItem="QnO-Ou-CEw" secondAttribute="trailing" constant="100.5" id="ugn-OS-8Vb"/>
+                            <constraint firstItem="XS2-vA-SXQ" firstAttribute="centerX" secondItem="saK-LV-KTF" secondAttribute="centerX" id="vbm-gH-9bx"/>
+                            <constraint firstItem="saK-LV-KTF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kGr-N8-Gn6" secondAttribute="trailing" id="zlg-KE-Kee"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fUx-mF-IZf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="制作Midi文件（GenericOutput）" id="GLP-4z-wdB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycQ-ea-AwD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="303" y="-95"/>
         </scene>
     </scenes>
 </document>

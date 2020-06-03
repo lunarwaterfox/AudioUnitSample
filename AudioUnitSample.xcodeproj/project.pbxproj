@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67D8CF9F2484C728008056A7 /* AMWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D8CF9E2484C728008056A7 /* AMWViewController.m */; };
+		67D8CFA22484C749008056A7 /* AudioMusicWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 67D8CFA12484C749008056A7 /* AudioMusicWriter.mm */; };
+		67D8CFA52484C758008056A7 /* AMWCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67D8CFA32484C758008056A7 /* AMWCore.cpp */; };
 		CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07AC2472E04E009F2E76 /* AppDelegate.m */; };
 		CD2B07B02472E04E009F2E76 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2B07AF2472E04E009F2E76 /* SceneDelegate.m */; };
 		CD2B07B62472E04E009F2E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2B07B42472E04E009F2E76 /* Main.storyboard */; };
@@ -33,6 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67D8CF9D2484C728008056A7 /* AMWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMWViewController.h; sourceTree = "<group>"; };
+		67D8CF9E2484C728008056A7 /* AMWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMWViewController.m; sourceTree = "<group>"; };
+		67D8CFA02484C749008056A7 /* AudioMusicWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioMusicWriter.h; sourceTree = "<group>"; };
+		67D8CFA12484C749008056A7 /* AudioMusicWriter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioMusicWriter.mm; sourceTree = "<group>"; };
+		67D8CFA32484C758008056A7 /* AMWCore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AMWCore.cpp; sourceTree = "<group>"; };
+		67D8CFA42484C758008056A7 /* AMWCore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AMWCore.hpp; sourceTree = "<group>"; };
 		CD2B07A82472E04E009F2E76 /* AudioUnitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioUnitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD2B07AB2472E04E009F2E76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD2B07AC2472E04E009F2E76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +96,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67D8CF9C2484C704008056A7 /* AudioMidiWriter */ = {
+			isa = PBXGroup;
+			children = (
+				67D8CF9D2484C728008056A7 /* AMWViewController.h */,
+				67D8CF9E2484C728008056A7 /* AMWViewController.m */,
+				67D8CFA02484C749008056A7 /* AudioMusicWriter.h */,
+				67D8CFA12484C749008056A7 /* AudioMusicWriter.mm */,
+				67D8CFA32484C758008056A7 /* AMWCore.cpp */,
+				67D8CFA42484C758008056A7 /* AMWCore.hpp */,
+			);
+			path = AudioMidiWriter;
+			sourceTree = "<group>";
+		};
 		CD2B079F2472E04E009F2E76 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +155,7 @@
 		CD2B07D52472EA96009F2E76 /* PlayerAndRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				67D8CF9C2484C704008056A7 /* AudioMidiWriter */,
 				CDBC45C9247B57FF0073D279 /* AudioMidiDevice */,
 				CDBC45BA2476E0820073D279 /* AudioFilePlayer */,
 				CDBC45B02475882D0073D279 /* AudioGraphPlayer */,
@@ -295,12 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDBC45C12476E15C0073D279 /* AFPCore.cpp in Sources */,
+				67D8CFA22484C749008056A7 /* AudioMusicWriter.mm in Sources */,
 				CD2B07AD2472E04E009F2E76 /* AppDelegate.m in Sources */,
 				CD2B07E72474D985009F2E76 /* AudioUnitException.cpp in Sources */,
+				67D8CF9F2484C728008056A7 /* AMWViewController.m in Sources */,
 				CD2B07E22473732E009F2E76 /* AUPCore.cpp in Sources */,
 				CDBC45C62476E1ED0073D279 /* AFPViewController.m in Sources */,
 				CDBC45CC247B58FC0073D279 /* AMDViewController.m in Sources */,
 				CD2B07DF247371E0009F2E76 /* AudioUnitPlayer.mm in Sources */,
+				67D8CFA52484C758008056A7 /* AMWCore.cpp in Sources */,
 				CDBC45D5247B5A290073D279 /* AMDCore.cpp in Sources */,
 				CDBC45CF247B596C0073D279 /* AudioMusicDevice.mm in Sources */,
 				CDBC45C22476E15C0073D279 /* AudioFilePlayer.mm in Sources */,
